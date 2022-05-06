@@ -1,0 +1,5 @@
+1. Id
+2. Preconditions
+3. Playback steps
+4. Expected result
+5. Actual result
