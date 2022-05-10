@@ -1,5 +1,4 @@
 1. Id
-2. Preconditions
-3. Playback steps
-4. Expected result
-5. Actual result
+2. Validation idea
+3. Actual result
+4. Status
