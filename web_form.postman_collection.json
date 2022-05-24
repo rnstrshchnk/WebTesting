@@ -8,6 +8,61 @@
 	"item": [
 		{
 			"name": "registration",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function nameValidation (value){\r",
+							"    if (value && value.length > 0 && value.length <65 && value.trim == value){\r",
+							"        return true\r",
+							"    } else return false\r",
+							"}\r",
+							"\r",
+							"function surnameValidation (value){\r",
+							"    if (value.length > 0 && value.length <65 && value.trim == value){\r",
+							"        return true\r",
+							"    } else return false\r",
+							"}\r",
+							"\r",
+							"function emailValidation (value){\r",
+							"    if (value && value.length > 5 && value.length <73){\r",
+							"        return true\r",
+							"    } else return false\r",
+							"}\r",
+							"\r",
+							"function passwordValidation (value){\r",
+							"    if (value && value > 5 && value < 17){\r",
+							"        return true\r",
+							"    } else return false\r",
+							"}\r",
+							"\r",
+							"function validator (){\r",
+							"    return nameValidation(name) && surnameValidatio(surname) && emailValidation(email) && passwordValidation(password) ? true : false\r",
+							"}\r",
+							"//let responceData = pm.response.json();\r",
+							"//console.log(pm.iterationData.get('name'))\r",
+							"let name = pm.iterationData.get('name');\r",
+							"let surname = pm.iterationData.get('surname');\r",
+							"let email = pm.iterationData.get('email');\r",
+							"let password = pm.iterationData.get('password');\r",
+							"\r",
+							"if (validator){\r",
+							"    pm.test(`Expect status 200 with name = ${name} , surname = ${surname}, email = ${email} and password = ${password}`, () => {\r",
+							"        pm.response.to.have.status(200);\r",
+							"    })\r",
+							"} else {\r",
+							"    pm.test(`Expect NOT to have status 200 with name = ${name} , surname = ${surname}, email = ${email} and password = ${password}`, () => {\r",
+							"        pm.response.to.have.status(200);\r",
+							"    })\r",
+							"}\r",
+							"\r",
+							"console.log(validator());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {}
 			},
