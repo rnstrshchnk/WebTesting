@@ -13,8 +13,10 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"let requestData = request.data;\r",
+							"console.log(requestData.name)\r",
 							"function nameValidation (value){\r",
-							"    if (value && value.length > 0 && value.length <65 && value.trim == value){\r",
+							"    if (value && value.length > 10 && value.length <65 && value.trim == value){\r",
 							"        return true\r",
 							"    } else return false\r",
 							"}\r",
@@ -40,9 +42,9 @@
 							"function validator (){\r",
 							"    return nameValidation(name) && surnameValidatio(surname) && emailValidation(email) && passwordValidation(password) ? true : false\r",
 							"}\r",
-							"//let responceData = pm.response.json();\r",
-							"//console.log(pm.iterationData.get('name'))\r",
+							"\r",
 							"let name = pm.iterationData.get('name');\r",
+							"console.log(pm.iterationData.get('name'))\r",
 							"let surname = pm.iterationData.get('surname');\r",
 							"let email = pm.iterationData.get('email');\r",
 							"let password = pm.iterationData.get('password');\r",
@@ -74,22 +76,22 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "arina",
+							"value": "{{name}}",
 							"type": "text"
 						},
 						{
 							"key": "surname",
-							"value": "arina",
+							"value": "{{surname}}",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "straschenko13@mail.ru",
+							"value": "{{email}}",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "tF5@kn3",
+							"value": "{{password}}",
 							"type": "text"
 						}
 					]
