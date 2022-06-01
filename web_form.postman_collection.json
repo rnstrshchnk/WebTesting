@@ -42,7 +42,8 @@
 							"}\r",
 							"\r",
 							"function passwordValidation (value){\r",
-							"    if (value && value.length > 4 && value.length < 17){\r",
+							"    let reg = /^([A-Za-z0-9\\@\\!\\.]{8,16})$/;\r",
+							"    if (reg.test(value) && /[0-9]/.test(value) && /[A-Z]/.test(value) && /[a-z]/.test(value) && /[\\@\\!\\.]/.test(value)){\r",
 							"        return true\r",
 							"    } else return false\r",
 							"}\r",
@@ -72,9 +73,9 @@
 							"// console.log(requestData.email.length)\r",
 							"// console.log(requestData.password.length)\r",
 							"console.log(nameValidation(name))\r",
-							"// console.log(surnameValidation(surname))\r",
+							"console.log(surnameValidation(surname))\r",
 							"console.log(emailValidation(email))\r",
-							"// console.log(passwordValidation(password))\r",
+							"console.log(passwordValidation(password))\r",
 							"console.log(validator());"
 						],
 						"type": "text/javascript"
